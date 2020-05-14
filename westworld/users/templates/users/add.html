@@ -1,0 +1,21 @@
+{% extends 'users/base.html' %}
+
+{% block title %}
+Add
+{% endblock title %}
+
+{% block content %}
+  <form method="POST" action="{%url 'users:add' %}">
+    {% csrf_token %}
+    
+    {% for field in form  %}
+        {{field.errors}}
+
+        {{field.label_tag}} {{field}}
+
+
+    {% endfor %}
+    {% comment %} <input type="text"> {% endcomment %}
+    <button type+"submit">Add</button>
+  </form>
+{% endblock  %}
